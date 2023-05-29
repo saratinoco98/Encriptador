@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+
+<html lang="es">
+    
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width"> 
+        <title>Encriptador</title>
+        <link rel="stylesheet" href="reset.css">
+        <link rel="stylesheet" href="style.css">
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+        <header>
+            <img class= "logo-1"src="Imagenes/Logo-1.png">
+        </header>
+
+        <main>
+                <textarea cols="70" rows="10" id="texto" class="texto" placeholder="Ingrese el texto aquí"></textarea>
+                <div class="botones">
+                <button class="btnencriptar" id="btnencriptar"><p>Encriptar</p></button>
+                <button class="btndesencriptar" id="btndesencriptar"><p>Desencriptar</p></button>
+                </div>
+            <div class="busqueda" id="busqueda">
+                <img class="imagen" src="Imagenes/Muñeco.png">
+                <h1>Ningún mensaje fue encontrado</h1>
+                <h2>Ingresa el texto que desees encriptar o desencriptar.</h2>
+            </div>
+
+            <div class="resultado" id="resultado">
+                <textarea cols="70" rows="10" class="texto2" id="texto2"></textarea>
+                <button class="btnCopiar"id="btnCopiar"><p>Copiar</p></button>
+            </div>
+        </main>
+        <footer>
+            <p class="copyright">&copy Copyright Sara Tinoco - 2023</p>
+        </footer>
+    </body>
+</html>
+
+<script>
+    document.getElementById("resultado").style.display = "none";
+    function encriptar(texto){
+        document.getElementById("busqueda").style.display = "none";
+        document.getElementById("resultado").style.display = "initial";
+        var texto = document.getElementById("texto").value;
+        console.log(texto);
+        var size = texto.length;
+        var letras = [];
+        var contador = 0;
+        var x="";
+
+        while(contador<=size){
+            x = texto.substr(contador,1);
+            if(x=="a"){
+                x="ai";
+            } if(x=="e"){
+                x="enter";
+            } if(x=="i"){
+                x = "imes";
+            } if( x == "o"){
+                x = "ober";
+            } if(x == "u"){
+                x = "ufat";
+            }
+            letras.push(x);
+
+            contador++;
+        }
+
+        texto2=letras.join('');
+        document.getElementById("texto2").value = texto2;
+      
+    }
+
+    function desencriptar(texto){
+        document.getElementById("busqueda").style.display = "none";
+        document.getElementById("resultado").style.display = "initial";
+        var texto = document.getElementById("texto").value;
+
+        texto2=texto.replaceAll("ai","a");
+        texto3=texto2.replaceAll("enter","e");
+        texto4=texto3.replaceAll("imes","i");
+        texto5=texto4.replaceAll("ober","o");
+        texto6=texto5.replaceAll("ufat","u");
+   
+        document.getElementById("texto2").value = texto6;
+    }
+
+    function copy() {
+        let copyText = document.querySelector("#texto2");
+        copyText.select();
+        document.execCommand("copy");
+    }
+
+    document.querySelector("#btnCopiar").addEventListener("click", copy);
+
+    var button = document.getElementById("btnencriptar");
+	button.onclick = encriptar;
+
+    var button2 = document.getElementById("btndesencriptar");
+	button2.onclick = desencriptar;
+
+</script>
+
