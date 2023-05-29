@@ -30,8 +30,54 @@ header{
     border-style: none;
 }
 
+
+
 .texto::placeholder{
     color:#0A3871;
+}
+
+.advertencia{
+    display: inline-block;
+    margin: auto;
+    margin-top: 28%;
+    margin-left: 240px;
+}
+.advertencia img{
+    display: inline-block;
+    margin: auto;
+    width: 16px;
+    height: 16px;
+    flex: none;
+    order: 0;
+    align-self: center;
+    flex-grow: 0;
+       
+}
+.advertencia p{
+    /* Solo letras minúsculas y sin acentos */
+    display: inline-block;
+    margin: auto;
+    width: auto;
+    height: 18px;
+    vertical-align: center;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+    /* or 24px */
+   /* text-align: center;*/
+
+    /* Gray/gray-400 */
+    color: #495057;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
 }
 
 .busqueda{
@@ -124,7 +170,7 @@ header{
 .botones{
     width: 60%;
    /* margin-left: 10%;*/
-    margin-top: 30%;
+    margin-top: auto;
     margin-left: 240px;
 }
 
